@@ -63,6 +63,7 @@ const locale = Astro.currentLocale ?? config.site.lang;
 
 const {
   title,
+  author,
   description,
   ogImage: initOgImage,
   canonicalURL,
@@ -122,6 +123,15 @@ const ogImage = ogImageUrl
 
     <div class="my-2 flex items-center gap-2">
       <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" />
+      <span aria-hidden="true" class="text-muted-foreground">|</span>
+      <a
+        href={config.site.profile}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-accent text-muted-foreground text-sm sm:text-base"
+      >
+        @{author}
+      </a>
       <span
         aria-hidden="true"
         class:list={[
