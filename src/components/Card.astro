@@ -10,7 +10,7 @@ type Props = {
 
 const { variant: Heading = "h2", id, data, filePath } = Astro.props;
 
-const { title, description, ...props } = data;
+const { title, description, author, ...props } = data;
 ---
 
 <li
@@ -35,5 +35,9 @@ const { title, description, ...props } = data;
   <p class="text-muted-foreground my-2 line-clamp-2 text-sm leading-relaxed">
     {description}
   </p>
-  <Datetime {...props} />
+  <div class="text-muted-foreground flex items-center gap-2 text-sm">
+    <Datetime {...props} />
+    <span aria-hidden="true">|</span>
+    <span>@{author}</span>
+  </div>
 </li>
